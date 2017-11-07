@@ -1,0 +1,31 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Sitemap:</h3>
+            <ul class="list-group">
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "list-group-item" })
+                @Html.ActionLink("FAQ", "Faq", "Home", null, new { @class = "list-group-item" })
+                @Html.ActionLink("About us", "About", "Home", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Contact us", "Contact", "Home", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Login", "Login", "User", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Register", "Register", "User", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Forgot Password", "ForgotPassword", "User", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Products", "Index", "Product", null, new { @class = "list-group-item" })
+                <li class="list-group-item">
+                    <ul class="list-group">
+                        @Html.ActionLink("All Products", "AllProducts", "Product", null, new { @class = "list-group-item" })
+                        @Html.ActionLink("Sale", "Sale", "Product", null, new { @class = "list-group-item" })
+                        @foreach (var item in ViewBag.CategoryItems)
+                        {
+                            string title = item.Name.ToString();
+                            string titleAction = "Show";
+                            @Html.ActionLink(title, titleAction, "Product", new { id = @item.Id.ToString() }, new { @class = "list-group-item" })
+                        }
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /container -->

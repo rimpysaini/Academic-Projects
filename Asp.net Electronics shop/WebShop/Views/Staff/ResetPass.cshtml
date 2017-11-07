@@ -1,0 +1,42 @@
+﻿@model WebShop.Models.PasswordResetModel
+@{
+    ViewBag.Title = "RessetPassword";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-md-9">
+        <div class="row mbox">
+            <div class="mform">
+
+                @using (Html.BeginForm("ResetPass", "Staff", new { id = ViewBag.mid }, FormMethod.Post, new { @class = "form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.Password, new { @class = "control-label" })
+                        @Html.TextBoxFor(s => s.Password, new { @Value = ViewBag.name, @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(s => s.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.ComparePassword, new { @class = "control-label" })
+                        @Html.TextBoxFor(s => s.ComparePassword, new { @Value = ViewBag.address, @class = "form-control", placeholder = "Retype password" })
+                        @Html.ValidationMessageFor(s => s.ComparePassword, "", new { @class = "text-danger" })
+                    </div>
+                    <div><button type="submit" class="btn msbtn btn-block btn-sm btn-primary">Update</button></div>
+                }
+                @if (ViewBag.Status != null)
+                {
+                    //Display the error message
+                    @ViewBag.Status
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+﻿@model WebShop.Models.UserModel
+@{
+
+
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+
+
+
+<div class="row mbox">
+    <div class="mform">
+        @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.ValidationSummary(false, "", new { @class = "error" })
+
+
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.FirstName, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.LastName, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.LastName, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Email, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Phone, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.Phone, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Street1, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.Street1, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Street2, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.Street2, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Town, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.Town, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.County, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.County, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.SecurityQuestion, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.TextBoxFor(u => u.SecurityQuestion, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Answer, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.PasswordFor(u => u.Answer, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+
+
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.Password, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.PasswordFor(u => u.Password, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    @Html.LabelFor(u => u.ConfirmPassword, new { @class = "control-label" })
+                    <div class=" col-md-10">
+                        @Html.PasswordFor(u => u.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </p>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <input id="Submit1" type="submit" value="Register" class="btn-primary" />
+                    <input id="Reset1" type="reset" value="Clear" class="btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

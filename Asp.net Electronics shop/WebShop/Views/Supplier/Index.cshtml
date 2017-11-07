@@ -1,0 +1,38 @@
+﻿@model WebShop.Models.SupplierModel
+@{
+    ViewBag.Title = "Supplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-sm-9">
+        @foreach (var item in ViewBag.SupplierItems)
+            { <div class="row mbox">
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Name</b></div>
+                <div class="col-sm-10">@item.Name</div>               
+            </div>
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Address</b></div>
+                <div class="col-sm-10">@item.Address</div>
+            </div>
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Phone</b></div>
+                <div class="col-sm-10">@item.Phone</div>
+            </div>
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Email</b></div>
+                <div class="col-sm-10">@item.Email</div>
+            </div>
+                  <div><span class="btn mbtn btn-block btn-sm btn-primary">@Html.ActionLink("Edit", "UpdateSupplier", "Supplier", new { id = @item.Id.ToString() }, null)</span></div>
+        </div>
+        }
+    </div>
+</div>
+
+

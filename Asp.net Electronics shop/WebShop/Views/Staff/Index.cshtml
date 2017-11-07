@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-sm-9">
+        @foreach (var staff in ViewBag.StaffItems)
+            { <div class="row mbox">
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>First name</b></div>
+                <div class="col-sm-10">@staff.FirstName</div>
+            </div>
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Surname</b></div>
+                <div class="col-sm-10">@staff.LastName</div>
+            </div>
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Role</b></div>
+                <div class="col-sm-10">@staff.UserRole</div>
+            </div>
+            <div class="row msupplier">
+                <div class="col-sm-2"><b>Email</b></div>
+                <div class="col-sm-10">@staff.Email</div>
+            </div>
+            <div><span class="btn mpbtn btn-block btn-sm btn-primary">@Html.ActionLink("Edit", "UpdateStaff", "Staff", new { id = @staff.Id.ToString() }, null)</span><span class="btn mpbtn btn-block btn-sm btn-primary">@Html.ActionLink("Reset Password", "ResetPass", "Staff", new { id = @staff.Id.ToString() }, null)</span></div>
+        </div>
+        }
+    </div>
+</div>
+

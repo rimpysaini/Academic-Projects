@@ -1,0 +1,55 @@
+﻿@model WebShop.Models.UpdateStaffModel
+@{
+    ViewBag.Title = "Update Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-md-9">
+        <div class="row mbox">
+            <div class="mform">
+
+                @using (Html.BeginForm("UpdateStaff", "Staff", new { id = ViewBag.mid }, FormMethod.Post, new { @class = "form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.FirstName, new { @class = "control-label" })
+                        @Html.TextBoxFor(s => s.FirstName, new { @Value = ViewBag.name, @class = "form-control", placeholder = "First name" })
+                        @Html.ValidationMessageFor(s => s.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.LastName, new { @class = "control-label" })
+                        @Html.TextBoxFor(s => s.LastName, new { @Value = ViewBag.address, @class = "form-control", placeholder = "Surname" })
+                        @Html.ValidationMessageFor(s => s.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.Email, new { @class = "control-label" })
+                        @Html.TextBoxFor(s => s.Email, new { @Value = ViewBag.phone, @class = "form-control", placeholder = "Email" })
+                        @Html.ValidationMessageFor(s => s.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.UserState)
+                        @Html.EnumDropDownListFor(u => u.UserState, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(u => u.UserState, "", new { @class = "text-danger" })
+                    </div>    <div class="form-group">
+                            @Html.LabelFor(u => u.UserRole)
+                            @Html.EnumDropDownListFor(u => u.UserRole, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.UserRole, "", new { @class = "text-danger" })
+                        </div>
+                        <div><button type="submit" class="btn msbtn btn-block btn-sm btn-primary">Update</button></div>
+                }
+                @if (ViewBag.Status != null)
+                {
+                    //Display the error message
+                    @ViewBag.Status
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

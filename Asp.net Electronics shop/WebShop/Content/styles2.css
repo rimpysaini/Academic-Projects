@@ -1,0 +1,72 @@
+﻿body {
+}
+
+
+.top-buffer {
+    margin-top: 40px;
+}
+
+.top-buffer-product {
+    margin-top: 40px;
+}
+
+.bottom-buffer-product {
+    margin-bottom: 40px;
+}
+
+.white-bg {
+    background: #ffffff !important;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.top-buffer-cat1 {
+    margin-top: 20px;
+}
+
+.top-buffer-cat {
+    margin-top: 25px;
+}
+
+.thumbnail-img {
+    background: transparent;
+}
+
+.bottom-buffer-product {
+    margin-bottom: 20px;
+}
+
+.card {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.top-buffer-prodd {
+    margin: 30px;
+}
+
+.discount {
+    color: red;
+}
+
+
+/*contact use*/
+
+.jumbotron {
+    background: #358CCE;
+    color: #FFF;
+    border-radius: 0px;
+}
+
+.jumbotron-sm {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.jumbotron small {
+    color: #FFF;
+}
+
+.h1 small {
+    font-size: 24px;
+}

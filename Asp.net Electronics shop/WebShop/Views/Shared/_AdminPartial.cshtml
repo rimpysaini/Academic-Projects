@@ -1,0 +1,18 @@
+﻿<div class="list-group">
+    <span class="list-group-item"><b><big>Category</big></b></span>
+    <a class="list-group-item" href="@Url.Action("Index", "AdminCategory")">List All</a>
+    <a class="list-group-item" href="@Url.Action("AddCategory", "AdminCategory")">Add Category</a>
+    <span class="list-group-item"><b><big>Product</big></b></span>
+    <a class="list-group-item" href="@Url.Action("Index", "AdminProduct")">List All</a>
+    <a class="list-group-item" href="@Url.Action("AddProduct", "AdminProduct")">Add Product</a>
+    <span class="list-group-item"><b><big>Supplier</big></b></span>
+    <a class="list-group-item" href="@Url.Action("Index", "Supplier")">List All</a>
+    <a class="list-group-item" href="@Url.Action("AddSupplier", "Supplier")">Add Supplier</a>
+    @if (Session["important"] != null)
+            {
+        <span class="list-group-item"><b><big>Staff</big></b></span>
+                <a class="list-group-item" href="@Url.Action("Index", "Staff")">List All</a>
+                <a class="list-group-item" href="@Url.Action("AddStaff", "Staff")">Add Staff</a>
+    }
+  
+</div>

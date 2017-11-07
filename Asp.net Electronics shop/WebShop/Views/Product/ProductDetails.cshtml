@@ -1,0 +1,90 @@
+﻿@model WebShop.Models.Product
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("AddProduct", "Cart", FormMethod.Post))
+{
+    <div class="container">
+
+        <div class="row top-buffer"></div>
+        <div class="row">
+            <div class="col-md-9 white-bg">
+                <div class="row">
+                    <div class="col-md-6 item-photo">
+                        <img class="img-responsive" src="~/Content/Images/products/@Model.ImageURL" alt="@Model.Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+
+                            <h3>@Model.Name</h3>
+                            <h5 style="color:#337ab7">Supplied by @Model.SupplierName</h5>
+
+                            <div class="col-md-4">
+                                <h6 class="title-price"><small>Current price</small></h6>
+                                <h3 style="margin-top:0px;">&euro;@Model.Price</h3>
+                            </div>
+                            <div class="col-md-4">
+                                @if (Model.Discount > 0)
+                                {
+                                    <h6 class="title-price"><small>Discount</small></h6>
+                                    <h3 class="discount" style="margin-top:0px;">&euro;@Model.Discount</h3>
+                                }
+
+                            </div>
+
+                        </div>
+                        <div class="row top-buffer-prodd"></div>
+
+                        <div class="row">
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input type="text" name="productID" value=@Model.ID hidden />
+                                <p>Quantity: @Html.DropDownList("quantity", new SelectList((List<int>)ViewBag.Quantity))</p>
+                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Heading</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var description in ViewBag.DescriptionList)
+                                    {
+                                        
+                                        <tr>
+                                            <td><b>@description.Heading</b></td>
+                                            <td>@description.Description</td>
+                                        </tr>
+                                                                          
+                                    }
+                                </tbody>
+                            </table>
+                        
+
+                        <div class="descmargin"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row bottom-buffer-product"></div>
+    </div>
+
+
+}

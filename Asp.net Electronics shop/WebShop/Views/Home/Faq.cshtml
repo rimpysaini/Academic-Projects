@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Faq";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron jumbotron-sm">
+    @*<div class="container">*@
+    <div class="row">
+        <div class="col-sm-10 col-lg-15">
+            <h2>FAQ</h2>
+        </div>
+    </div>
+</div>
+@*</div>*@
+
+<div class="container ">
+    <div class="panel-group" id="faqAccordion">
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
+                <h4 class="panel-title">
+                    <a href="#" class="ing">Q: How long does delivery usually take?</a>
+                </h4>
+            </div>
+            <div id="question0" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                    <h5><span class="label label-primary">Answer</span></h5>
+                    <p>
+                        Immediately after placing your order you will receive an email containing your order details and a link you must click to confirm your order. Immediately after we obtain this confirmation we will begin processing you order. Updated information on the status of your order will be sent to your email address on a regular basis.
+
+                        While we do our utmost to unite our customers with their purchases as quickly as possible, the time taken for delivery depends on factors including the availability of the item(s) and the the selected method of payment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <div class="panel panel-default ">
+        <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question1">
+            <h4 class="panel-title">
+                <a href="#" class="ing">Q: Can I return the product purchased?</a>
+            </h4>
+        </div>
+        <div id="question1" class="panel-collapse collapse" style="height: 0px;">
+            <div class="panel-body">
+                <h5><span class="label label-primary">Answer</span></h5>
+                <p>Yes, within 14 days from the date of delivery of the order, you can return your online store purchases for any reason in line with the Distance Selling regulations. This product cannot have any carry signs of use, nor can it show any signs of damage. Items must be in the original packaging with its entire contents.</p>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <div class="panel panel-default ">
+        <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question2">
+            <h4 class="panel-title">
+                <a href="#" class="ing">Q: How do I check the progress of an order?</a>
+            </h4>
+        </div>
+        <div id="question2" class="panel-collapse collapse" style="height: 0px;">
+            <div class="panel-body">
+                <h5><span class="label label-primary">Answer</span></h5>
+                <p>We will send information on the progress of your order to the email address you provided to us. In addition, upon logging into your account you will have access to all the information concerning your current and past orders: status, content, personal information etc.</p>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <div class="panel panel-default ">
+        <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question3">
+            <h4 class="panel-title">
+                <a href="#" class="ing">Q: Can I add/remove items from my order?</a>
+            </h4>
+        </div>
+        <div id="question3" class="panel-collapse collapse" style="height: 0px;">
+            <div class="panel-body">
+                <h5><span class="label label-primary">Answer</span></h5>
+                <p>Yes, but you can only modify your order online up until the point of its completion. Upon receiving your email and confirming your order, modification will no longer be possible. To make any changes to your order (change of address, addition of product, change the method of payment or delivery), please contact our customer service team as soon as possible - sale@maxbitt.com</p>
+            </div>
+        </div>
+
+
+    </div>
+    <!--/panel-group-->
+</div>
+
+

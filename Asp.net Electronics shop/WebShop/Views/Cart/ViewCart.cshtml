@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebShop.Models.Product>
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+
+        <tr class="success">
+
+
+
+            <th style="width:10%">Name</th>
+            <th style="width:5%"></th>
+            <th style="width:10%">Quantity</th>
+            <th style="width:5%"></th>
+            <th style="width:10%">Price</th>
+            <th style="width:15%">Total Price</th>
+            <th style="width:35%">Image</th>
+            <th style="width:10%"></th>
+        </tr>
+
+        @foreach (var product in Model)
+        {
+            <tr>
+
+                <td data-th>@product.Name</td>
+                <td>
+                    @using (Html.BeginForm("ChangeQuantity", "Cart", FormMethod.Post))
+                    {
+                        <input type="text" name="productID" value=@product.ID hidden />
+                        <input type="text" name="quantity" value="@product.Quantity" hidden />
+                        <input type="text" name="newquantity" value="-1" hidden />
+                        <button id="reducequantity" type="submit"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                    }
+                </td>
+                <td>
+                    @product.Quantity
+                </td>
+                <td>
+                    @using (Html.BeginForm("ChangeQuantity", "Cart", FormMethod.Post))
+                    {
+                        <input type="text" name="productID" value=@product.ID hidden />
+                        <input type="text" name="quantity" value="@product.Quantity" hidden />
+                        <input type="text" name="newquantity" value="1" hidden />
+                        <button id="increasequantity" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    }
+                </td>
+
+                <td>@product.Price</td>
+                <td class="text-center"><strong>@product.TotalPrice</strong></td>
+                <td>
+                    <img src="~/Content/Images/Products/@product.ImageURL" alt="@product.Name" class="col-lg-3 col-md-4 col-xs-6 img-rounded thumb" />
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveItem", "Cart", FormMethod.Post))
+                   {
+                        <input type="text" name="productID" value=@product.ID hidden />
+                        <input type="submit" value="Remove" class="btn btn-primary" />
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+@using (Html.BeginForm("ClearAll", "Cart", FormMethod.Post))
+            {
+    <input type="text" name="productID" value="1" hidden />
+    <input type="submit" value="Remove All Products" class="btn btn-primary" />
+}
+<h3>Total Price: @ViewBag.TransactionPrice</h3>
+
+
+<a href="@Url.Action("Checkout", "Cart")" class="btn btn-primary">
+    <i class="fa fa-search"></i>
+    <span>Go to checkout</span>
+</a>
+
+
+
+

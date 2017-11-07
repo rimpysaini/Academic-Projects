@@ -1,0 +1,33 @@
+﻿@if (Session["important"] != null || Session["juststaff"] != null)
+{
+    <li>
+        <a href="@Url.Action("Index", "Admin")"><span class="fa fa-user-circle text-danger">Admin &nbsp;</span></a>
+    </li>
+    <li>
+        <a href="@Url.Action("LogOut", "User")"><span class="fa fa-sign-out text-danger">Log out&nbsp;</span></a>
+    </li>
+}
+@if (Session["name"] != null)
+{
+    <li>
+        <a href="@Url.Action("Index", "Cart")"><span class="fa fa-shopping-bag"> Cart&nbsp;</span></a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "User")"><span class="fa fa-user-o">Welcome&nbsp; @Session["name"]&nbsp;</span></a>
+    </li>
+    <li>
+        <a href="@Url.Action("LogOut", "User")"><span class="fa fa-sign-out">Log out&nbsp;</span></a>
+    </li>
+}
+else
+{
+    <li>
+        <a href="@Url.Action("Index", "Cart")"><span id="cart" class="fa fa-shopping-bag">&nbsp;Cart&nbsp;</span><div id="shop_cart"></div></a>
+    </li>
+    <li>
+        <a href="@Url.Action("Register", "User")"><span class="fa fa-user-o">&nbsp;Register</span></a>
+    </li>
+    <li>
+        <a href="@Url.Action("Login", "User")"><span class="fa fa-sign-in">&nbsp;Login</span></a>
+    </li>
+}

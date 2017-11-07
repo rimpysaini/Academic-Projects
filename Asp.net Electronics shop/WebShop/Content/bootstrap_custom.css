@@ -1,0 +1,10 @@
+﻿.modal-dialog {
+    position: absolute;
+    top: 10%;
+    right: 0px;
+    bottom: 0;
+    left: 0;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+}

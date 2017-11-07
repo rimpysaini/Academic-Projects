@@ -1,0 +1,27 @@
+﻿@model WebShop.Models.AdminCategoryModel
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-sm-9">
+        @foreach (var item in ViewBag.CategoryItems)
+        {
+            <div class="row mbox">
+                <div class="col-sm-3"><img class="simg" alt="@item.ImageUrl" src="~/Content/Images/category/@item.ImageUrl" /></div>
+                <div class="col-sm-9">
+                    <div class="mbox-title">@item.Name</div>
+                    <div class="mbox-desc">@item.Description</div>
+                    <div><span class="btn mbtn btn-block btn-sm btn-primary">@Html.ActionLink("Edit", "UpdateCategory", "AdminCategory", new { id = @item.Id.ToString() },null)</span></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebShop.Models.Product>
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CheckOut</h2>
+
+<table id="cart" class="table table-hover table-condensed">
+
+    <tr class="success">
+        <th style="width:10%">Name</th>
+        <th style="width:10%">Quantity</th>
+        <th style="width:10%">Price</th>
+        <th style="width:15%">Total Price</th>
+        <th style="width:10%"></th>
+    </tr>
+
+    @foreach (var product in Model)
+    {
+
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Quantity</td>
+            <td>@product.Price</td>
+            <td>@product.TotalPrice</td>
+            <td>
+                @using (Html.BeginForm("RemoveItem", "Cart", FormMethod.Post))
+                {
+                    <input type="text" name="productID" value=@product.ID hidden />
+                    <input type="submit" value="Remove" class="btn btn-primary" />
+                }
+            </td>
+
+        </tr>
+
+    }
+
+
+
+</table>
+<h3>Total Price: @ViewBag.Price</h3>
+
+@using (Html.BeginForm("CheckOut", "Cart", FormMethod.Post))
+{
+
+    <p>What shipping method would you like? Please select: </p>
+
+
+    @Html.DropDownList("shipping", new SelectListItem[]
+   { new SelectListItem() { Text = "Please select your shipping", Value = "0" },
+       new SelectListItem() { Text = "Super saver - charge of 5 euro", Value = "1" },
+     new SelectListItem() { Text = "Standard - charge of 10 euro", Value = "2" },
+     new SelectListItem() { Text = "Express - charge of 20 euro", Value = "3" }},
+     new { @onchange="CallChangefunc(this.value)" })
+
+        <p>Please enter your credit card number in the field below : </p>
+        <input type="text" name="creditcard" value="">
+        <p><input type="submit" value="Pay" /></p>
+
+}

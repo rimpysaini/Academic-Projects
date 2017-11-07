@@ -1,0 +1,44 @@
+﻿@model WebShop.Models.AdminProductModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-sm-9">
+        @foreach (var product in ViewBag.ProductsList)
+        {
+            <div class="row mbox">
+                <div class="col-sm-3"><img class="simg" src="~/Content/Images/products/@product.ImageUrl" alt=" @product.Name" /></div>
+                <div class="col-sm-9">
+                    <div></div>
+                    <div class="row">
+                        <div class="col-xs-2"><h4><b>@product.Name</b></h4></div><div class="col-xs-10"></div>
+                    </div>
+                    <div></div>
+                    <div class="row">
+                        <div class="col-xs-2"><b>Price</b></div><div class="col-xs-10">@product.Price&nbsp;&euro;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><b>Discount</b></div><div class="col-xs-10">@product.Discount&nbsp;&#37;</div>
+                    </div>
+                    <div>
+                        <span class="btn mpbtn btn-block btn-sm btn-primary">
+                            @Html.ActionLink("Edit Description", "UpdateDesc", "AdminProduct", new { id = @product.Id.ToString() }, null)
+                        </span>
+                    </div>
+                    <div>
+                        <span class="btn mpbtn btn-block btn-sm btn-primary">
+                            @Html.ActionLink("Edit Details", "UpdateProduct", "AdminProduct", new { id = @product.Id.ToString() }, null)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

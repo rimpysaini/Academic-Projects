@@ -1,0 +1,49 @@
+﻿@model WebShop.Models.AdminCategoryModel
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-12 text-center admin-header">
+    <h3><b>Administration</b></h3>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_AdminPartial")
+    </div>
+    <div class="col-md-9">
+        <div class="row mbox">
+            <div class="mform">
+                @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form newcat", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Name, new { @class = "col-sm-2 control-label" })
+                        @Html.TextBoxFor(u => u.Name, new { @class = "form-control", placeholder = "Category name" })
+                        @Html.ValidationMessageFor(u => u.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Description, new { @class = "col-sm-2 control-label" })
+                        @Html.TextBoxFor(u => u.Description, new { @class = "form-control", placeholder = "Description" })
+                        @Html.ValidationMessageFor(u => u.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Image)
+                        @Html.TextBoxFor(u => u.Image, new { type = "file", @class = "btn btn-sm btn-default fileinput-button" })
+                    </div>
+                    <div><button class="btn mbtn btn-block btn-sm btn-primary">Create</button></div>
+
+                }
+                @if (ViewBag.Status != null)
+                {
+                    //Display the error message
+                    @ViewBag.Status
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
